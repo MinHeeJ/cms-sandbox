@@ -1,0 +1,201 @@
+openapi: 3.0.3
+info:
+  title: Member Management API
+  version: 0.1.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/v1/members/registration:
+    post:
+      operationId: startRegistration
+      responses:
+        '201':
+          description: Pending registration created
+  /api/v1/members/registration/{registrationId}/verify:
+    post:
+      operationId: verifyRegistration
+      parameters:
+        - name: registrationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Member account
+  /api/v1/members/me:
+    get:
+      operationId: getMyAccount
+      responses:
+        '200':
+          description: Member account
+    patch:
+      operationId: updateMyProfile
+      responses:
+        '200':
+          description: Updated member account
+  /api/v1/members/me/contact-points/{type}/change:
+    post:
+      operationId: requestContactChange
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Verification challenge created
+  /api/v1/members/me/notification-preferences:
+    get:
+      operationId: getNotificationPreferences
+      responses:
+        '200':
+          description: Notification preferences
+    put:
+      operationId: updateNotificationPreferences
+      responses:
+        '200':
+          description: Updated notification preferences
+  /api/v1/members/me/privacy-requests:
+    get:
+      operationId: listMyPrivacyRequests
+      responses:
+        '200':
+          description: Privacy request page
+    post:
+      operationId: createMyPrivacyRequest
+      responses:
+        '201':
+          description: Privacy request created
+  /api/v1/members/me/withdrawal:
+    post:
+      operationId: requestWithdrawal
+      responses:
+        '202':
+          description: Withdrawal request submitted
+  /api/v1/admin/members:
+    get:
+      operationId: searchMembers
+      responses:
+        '200':
+          description: Member search results
+  /api/v1/admin/members/{memberId}:
+    get:
+      operationId: getAdminMemberDetail
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Member detail
+  /api/v1/admin/members/{memberId}/status-changes:
+    post:
+      operationId: changeMemberStatus
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated member detail
+  /api/v1/admin/members/{memberId}/roles:
+    put:
+      operationId: replaceMemberRoles
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated roles
+  /api/v1/admin/members/{memberId}/restrictions:
+    post:
+      operationId: applyRestriction
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Restriction created
+  /api/v1/admin/members/{memberId}/restrictions/{restrictionId}:
+    patch:
+      operationId: updateRestriction
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: restrictionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated restriction
+  /api/v1/admin/members/{memberId}/audit-events:
+    get:
+      operationId: listMemberAuditEvents
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Audit event page
+  /api/v1/admin/privacy-requests:
+    get:
+      operationId: searchPrivacyRequests
+      responses:
+        '200':
+          description: Privacy request page
+  /api/v1/admin/privacy-requests/{privacyRequestId}:
+    get:
+      operationId: getPrivacyRequest
+      parameters:
+        - name: privacyRequestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Privacy request
+  /api/v1/admin/privacy-requests/{privacyRequestId}/review:
+    post:
+      operationId: reviewPrivacyRequest
+      parameters:
+        - name: privacyRequestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Reviewed privacy request
+  /api/v1/admin/privacy-requests/{privacyRequestId}/complete:
+    post:
+      operationId: completePrivacyRequest
+      parameters:
+        - name: privacyRequestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Completed privacy request
