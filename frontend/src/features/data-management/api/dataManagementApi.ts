@@ -1,0 +1,1 @@
+import { api } from "../../../shared/api/client"; export const dataManagementApi = { audits: () => api.get("/api/data/audit-logs"), backup: () => api.post("/api/data/backups"), backups: () => api.get("/api/data/backups"), restore: () => api.post("/api/data/restores"), migrate: () => api.post("/api/data/migrations"), migrations: () => api.get("/api/data/migrations") };

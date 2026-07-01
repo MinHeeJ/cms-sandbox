@@ -1,0 +1,4 @@
+import { api } from '../../../shared/api/client';
+export interface Folder { id?: number; parentId?: number | null; name: string; active: boolean; displayOrder: number; }
+export interface DocumentItem { id?: number; folderId: number; title: string; markdownBody: string; renderedHtml?: string; status?: string; displayOrder: number; updatedAt?: string; }
+export const adminContentApi = { folders: () => api.get<Folder[]>('/api/admin/folders'), documents: () => api.get<DocumentItem[]>('/api/admin/documents'), createFolder: (f: Folder) => api.post<Folder>('/api/admin/folders', f), saveDocument: (d: DocumentItem) => api.post<DocumentItem>('/api/admin/documents', d), preview: (markdown: string) => api.post<{html: string}>('/api/admin/markdown/preview', { markdown }), publish: (id: number) => api.post<DocumentItem>(`/api/admin/documents/${id}/publish`) };

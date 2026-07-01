@@ -1,0 +1,3 @@
+import { api } from '../../../shared/api/client';
+export interface Attachment { id: number; documentId: number; originalFileName: string; fileSizeBytes: number; extension: string; deleted: boolean; }
+export const attachmentApi = { list: (documentId: number) => api.get<Attachment[]>(`/api/documents/${documentId}/attachments`), upload: (documentId: number, body: unknown) => api.post<Attachment>(`/api/admin/documents/${documentId}/attachments`, body), download: (id: number) => api.get<Attachment>(`/api/attachments/${id}/download`), delete: (id: number) => api.delete<void>(`/api/admin/attachments/${id}`) };

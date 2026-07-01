@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #fff;
+  --color-surface: #fff;
+  --color-border: #dfe5ef;
+  --color-text: #1c2536;
+  --color-text-muted: #5a6a85bf;
+  --color-primary: #5d87ff;
+  --color-primary-emphasis: #4b6fd9;
+  --color-secondary: #49beff;
+  --color-success: #13deb9;
+  --color-warning: #f6b51e;
+  --color-danger: #ef4444;
+  --color-info: #8754ec;
+  --color-lightprimary: color-mix(in oklab, #5d87ff 12%, transparent);
+  --color-lightsecondary: color-mix(in oklab, #49beff 12%, transparent);
+  --color-lightsuccess: color-mix(in oklab, #13deb9 12%, transparent);
+  --color-lightwarning: color-mix(in oklab, #f6b51e 12%, transparent);
+  --color-lighterror: color-mix(in oklab, #ef4444 12%, transparent);
+  --color-lightinfo: color-mix(in oklab, #8754ec 12%, transparent);
+}
+
+html { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+* { box-sizing: border-box; }
+.markdown-body table { display: block; overflow-x: auto; border: 1px solid var(--color-border); border-radius: 8px; }
+.markdown-body pre { overflow-x: auto; background: #1c2536; color: white; padding: 16px; border-radius: 8px; }
+.markdown-body code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace; }
