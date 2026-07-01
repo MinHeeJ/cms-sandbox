@@ -1,0 +1,13 @@
+services:
+  backend:
+    environment:
+      CMS_STORAGE_LOCAL_PATH: ${CMS_STORAGE_LOCAL_PATH:-/var/cms/storage}
+      CMS_BACKUP_PATH: ${CMS_BACKUP_PATH:-/var/cms/backup}
+    volumes:
+      - cms-storage:/var/cms/storage
+      - cms-backup:/var/cms/backup
+  postgres:
+    ports:
+      - "5432:5432"
+volumes:
+  cms-backup:

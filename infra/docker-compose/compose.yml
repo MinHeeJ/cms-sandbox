@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-cms}
+      POSTGRES_USER: ${POSTGRES_USER:-cms}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - cms-postgres-data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+      - ./database/seeds/local_seed.sql:/docker-entrypoint-initdb.d/002-seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-cms} -d $${POSTGRES_DB:-cms}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  backend:
+    image: cms-backend:0.1.0
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    pull_policy: build
+    environment:
+      CMS_DB_URL: ${CMS_DB_URL:-jdbc:postgresql://postgres:5432/cms}
+      CMS_DB_USER: ${POSTGRES_USER:-cms}
+      CMS_DB_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      CMS_STORAGE_LOCAL_PATH: ${CMS_STORAGE_LOCAL_PATH:-/var/cms/storage}
+      CMS_CORS_ALLOWED_ORIGINS: ${CMS_CORS_ALLOWED_ORIGINS:-http://localhost:3000}
+    ports:
+      - "8080:8080"
+    volumes:
+      - cms-storage:/var/cms/storage
+    depends_on:
+      postgres:
+        condition: service_healthy
+  frontend:
+    image: cms-frontend:0.1.0
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    pull_policy: build
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+volumes:
+  cms-postgres-data:
+  cms-storage:

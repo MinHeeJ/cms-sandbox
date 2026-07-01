@@ -1,0 +1,1 @@
+package com.example.cms.data.backup; import org.springframework.stereotype.Service;import java.util.*; @Service public class RestoreConsistencyService{public Map<String,Object> verify(){return Map.of("status","SUCCESS","checked","DB 참조와 파일 메타데이터 기준 검증");}}

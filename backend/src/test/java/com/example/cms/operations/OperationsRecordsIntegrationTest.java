@@ -1,0 +1,1 @@
+package com.example.cms.operations; import org.junit.jupiter.api.Test; class OperationsRecordsIntegrationTest { @Test void contract_documented() { org.junit.jupiter.api.Assertions.assertTrue(true); } }

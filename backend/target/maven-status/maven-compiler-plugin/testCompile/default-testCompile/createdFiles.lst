@@ -1,0 +1,16 @@
+com/example/cms/attachment/AttachmentDownloadSecurityTest.class
+com/example/cms/content/ContentLifecycleIntegrationTest.class
+com/example/cms/portal/PortalReadIntegrationTest.class
+com/example/cms/common/CommonErrorAndSecurityIntegrationTest.class
+com/example/cms/security/VisibilityRegressionTest.class
+com/example/cms/data/BackupRestoreIntegrationTest.class
+com/example/cms/attachment/AttachmentLifecycleIntegrationTest.class
+com/example/cms/search/SearchIntegrationTest.class
+com/example/cms/security/SecurityHardeningTest.class
+com/example/cms/operations/HealthCheckIntegrationTest.class
+com/example/cms/performance/QueryPerformanceSmokeTest.class
+com/example/cms/data/AuditLogIntegrationTest.class
+com/example/cms/CmsApplicationTests.class
+com/example/cms/operations/OperationsRecordsIntegrationTest.class
+com/example/cms/project/ChangeRequestWorkflowTest.class
+com/example/cms/project/ProjectManagementValidationTest.class

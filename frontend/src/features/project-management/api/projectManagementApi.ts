@@ -1,0 +1,1 @@
+import { api } from "../../../shared/api/client"; export const projectManagementApi = { list: (path: string) => api.get(`/api/project/${path}`), save: (path: string, body: unknown) => api.post(`/api/project/${path}`, body) };

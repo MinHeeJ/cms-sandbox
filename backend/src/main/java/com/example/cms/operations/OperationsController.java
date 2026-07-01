@@ -1,0 +1,5 @@
+package com.example.cms.operations;
+import com.example.cms.common.response.ApiResponse;import com.example.cms.operations.deployment.*;import com.example.cms.operations.health.*;import com.example.cms.operations.software.*;import org.springframework.web.bind.annotation.*;import java.util.*;
+@RestController
+@RequestMapping("/api/operations")
+public class OperationsController{private final HealthService health;private final DeploymentService deployments;private final SoftwareComplianceService software; public OperationsController(HealthService h,DeploymentService d,SoftwareComplianceService s){health=h;deployments=d;software=s;} @GetMapping("/health") ApiResponse<Map<String,Object>> health(){return ApiResponse.ok("상세 헬스",health.check());} @GetMapping("/deployments") ApiResponse<List<Map<String,Object>>> deployments(){return ApiResponse.ok("배포 이력",deployments.list());} @GetMapping("/licenses") ApiResponse<List<Map<String,Object>>> licenses(){return ApiResponse.ok("라이선스",software.licenses());} @GetMapping("/vulnerabilities") ApiResponse<List<Map<String,Object>>> vulnerabilities(){return ApiResponse.ok("취약점",software.vulnerabilities());}}

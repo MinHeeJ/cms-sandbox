@@ -1,0 +1,1 @@
+package com.example.cms.operations.deployment; public record DeploymentRecord(Long id,String version,String sourceCommit,String buildNumber,String testResult,String approver,boolean rollbackAvailable) {}

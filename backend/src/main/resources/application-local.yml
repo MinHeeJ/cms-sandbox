@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${CMS_DB_URL:jdbc:postgresql://localhost:5432/cms}
+    username: ${CMS_DB_USERNAME:cms}
+    password: ${CMS_DB_PASSWORD:cms_password}
+cms:
+  storage:
+    local-path: ${CMS_STORAGE_LOCAL_PATH:./var/uploads}

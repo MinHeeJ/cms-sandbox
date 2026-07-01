@@ -1,0 +1,11 @@
+### Create folder
+POST http://localhost:8080/api/admin/folders
+Content-Type: application/json
+
+{"name":"가이드","active":true,"displayOrder":1}
+
+### Markdown preview
+POST http://localhost:8080/api/admin/markdown/preview
+Content-Type: application/json
+
+{"markdown":"# 제목"}

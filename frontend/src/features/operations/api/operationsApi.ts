@@ -1,0 +1,1 @@
+import { api } from "../../../shared/api/client"; export const operationsApi = { health: () => api.get("/api/operations/health"), deployments: () => api.get("/api/operations/deployments"), licenses: () => api.get("/api/operations/licenses"), vulnerabilities: () => api.get("/api/operations/vulnerabilities") };

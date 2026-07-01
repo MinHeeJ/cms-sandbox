@@ -1,0 +1,16 @@
+/workspace/backend/src/test/java/com/example/cms/CmsApplicationTests.java
+/workspace/backend/src/test/java/com/example/cms/attachment/AttachmentDownloadSecurityTest.java
+/workspace/backend/src/test/java/com/example/cms/attachment/AttachmentLifecycleIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/common/CommonErrorAndSecurityIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/content/ContentLifecycleIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/data/AuditLogIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/data/BackupRestoreIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/operations/HealthCheckIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/operations/OperationsRecordsIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/performance/QueryPerformanceSmokeTest.java
+/workspace/backend/src/test/java/com/example/cms/portal/PortalReadIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/project/ChangeRequestWorkflowTest.java
+/workspace/backend/src/test/java/com/example/cms/project/ProjectManagementValidationTest.java
+/workspace/backend/src/test/java/com/example/cms/search/SearchIntegrationTest.java
+/workspace/backend/src/test/java/com/example/cms/security/SecurityHardeningTest.java
+/workspace/backend/src/test/java/com/example/cms/security/VisibilityRegressionTest.java
